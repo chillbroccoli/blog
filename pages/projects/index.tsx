@@ -37,7 +37,7 @@ export default function ProjectsPage() {
   return (
     <div>
       <Head>
-        <title>Posts</title>
+        <title>Projects</title>
       </Head>
 
       <h2 className="font-semibold text-3xl text-gray-700 dark:text-gray-200 mb-4">

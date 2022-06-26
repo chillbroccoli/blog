@@ -22,7 +22,7 @@ const Home = ({ posts }: HomePageProps) => {
   return (
     <div>
       <Head>
-        <title>Kacper Malek</title>
+        <title>Home</title>
       </Head>
       <Bio />
       <RecentPosts posts={posts} />

@@ -65,7 +65,7 @@ function Paragraph(props: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
       {...props}
-      className="text-gray-300 py-4 leading-8 tracking-tight font-medium"
+      className="text-gray-700 dark:text-gray-300 py-4 leading-8 tracking-tight font-medium"
     />
   );
 }
@@ -74,7 +74,7 @@ function Pre(props: React.HTMLAttributes<HTMLPreElement>) {
   return (
     <pre
       {...props}
-      className="rounded-xl bg-neutral-800 py-2 px-3 my-4 border border-gray-600 shadow-2xl overflow-x-auto"
+      className="rounded-xl bg-gray-900 py-2 px-3 my-4 border border-gray-600 shadow-2xl overflow-x-auto"
     />
   );
 }
@@ -102,7 +102,12 @@ function UL(props: React.HTMLAttributes<HTMLUListElement>) {
 }
 
 function ULItem(props: React.HTMLAttributes<HTMLLIElement>) {
-  return <li {...props} className="my-2 text-gray-400 font-medium" />;
+  return (
+    <li
+      {...props}
+      className="my-2 text-gray-600 dark:text-gray-400 font-medium"
+    />
+  );
 }
 
 function Strong(props: React.HTMLAttributes<HTMLSpanElement>) {
@@ -110,7 +115,12 @@ function Strong(props: React.HTMLAttributes<HTMLSpanElement>) {
 }
 
 function EM(props: React.HTMLAttributes<HTMLSpanElement>) {
-  return <em {...props} className="italic text-sm text-gray-400" />;
+  return (
+    <em
+      {...props}
+      className="italic text-sm text-gray-600 dark:text-gray-400"
+    />
+  );
 }
 
 function CustomLink(props: React.HTMLAttributes<HTMLAnchorElement>) {

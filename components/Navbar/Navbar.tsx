@@ -42,8 +42,8 @@ export default function Navbar() {
               <a
                 className={clsx(
                   tab.current
-                    ? "font-semibold text-white hover:bg-gray-600/30"
-                    : "text-gray-400 font-normal hover:bg-gray-600/30",
+                    ? "font-semibold text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600/30"
+                    : "text-gray-500 font-normal hover:bg-gray-200 dark:hover:bg-gray-600/30",
                   "px-3 py-2 rounded-md"
                 )}
                 aria-current={tab.current ? "page" : undefined}
@@ -54,7 +54,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="relative">
+        <div className="relative z-50">
           <ThemeSelector />
         </div>
       </div>

@@ -2,12 +2,10 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 
 import fs from "fs";
 import path from "path";
-import Link from "next/link";
 import Head from "next/head";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
-import rehypeHighlight from "rehype-highlight";
 import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
 

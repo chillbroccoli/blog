@@ -12,7 +12,7 @@ function H1(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
       {...props}
-      className="text-6xl my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-6xl mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }
@@ -21,7 +21,7 @@ function H2(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
       {...props}
-      className="text-4xl my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-4xl mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }
@@ -30,7 +30,7 @@ function H3(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
       {...props}
-      className="text-2xl my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-2xl mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }
@@ -39,7 +39,7 @@ function H4(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h4
       {...props}
-      className="text-xl my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-xl mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }
@@ -48,7 +48,7 @@ function H5(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h5
       {...props}
-      className="text-lg my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-lg mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }
@@ -57,7 +57,7 @@ function H6(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h6
       {...props}
-      className="text-md my-6 font-bold tracking-tight text-black dark:text-white"
+      className="text-md mt-6 mb-1 font-bold tracking-tight text-black dark:text-white"
     />
   );
 }

@@ -30,6 +30,7 @@ import {
   CustomLink,
 } from "@/components/MDXComponents";
 import Alert from "@/components/Alert";
+import SandboxFrame from "@/components/SandboxFrame";
 
 type Frontmatter = {
   title: string;
@@ -60,6 +61,7 @@ const components = {
   Head,
   Image: CustomImage,
   Alert,
+  SandboxFrame,
 };
 
 export default function PostPage({ source, frontmatter }: PostPageProps) {

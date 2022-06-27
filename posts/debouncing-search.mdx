@@ -1,0 +1,110 @@
+---
+id: 2
+title: Debouncing Search
+date: 27/06/2022
+description: Debouncing search, for large arrays optimization / API calls reduction.
+---
+
+<Head>
+  <title>Debouncing Search</title>
+</Head>
+
+### What even is debouncing?
+
+Debouncing is a method, in which function won't run until the time interval has passed, in search case debouncing, function won't run
+untill we stop typing. Debouncing is a optimization technique to reduce amount of times that task will run.
+
+### How does debounce function look like?
+
+```js:javascript
+function debounce(callback, delay = 1000) {
+  let timeout;
+
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  }
+}
+
+debounce(() => {
+  console.log("Hello World!")
+}, 3000)();
+
+// after 3 seconds
+// Hello World!
+```
+
+This is probably one of the most common way to implement debouncing, here we're creating debounce function, which takes callback function and delay as arguments,
+and returns a function, which will be called after delay, and will call callback function with arguments, which were passed to debounce function, the timeout will also be cleared,
+after callback function will be called.
+
+Probably even more common way, is to just install debounce package instead of creating our own debounce function, which we'll do.
+
+### Installation
+
+```bash:bash
+npm install lodash.debounce
+# or
+yarn add lodash.debounce
+```
+
+### Searching without debounce
+
+```tsx:tsx
+const [filteredCars, setFilteredCars] = useState(carMakes);
+const [value, setValue] = useState("");
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setValue(e.target.value);
+
+  setFilteredCars(
+    carMakes.filter((car) =>
+      car.toLowerCase().includes(e.target.value.toLowerCase())
+    )
+  );
+};
+```
+
+```tsx:tsx
+<input type="text" value={value} onChange={handleChange} />
+```
+
+### What's wrong with it?
+
+Every time character is entered or deleted from the input `handleChange` function will run, and it will filter cars, which match the input value, while it's not a
+problem with small arrays, but with large arrays, it could cause for example a lot of API calls, which could slow down the application, or in this case
+for example with array of five thousands items it would try to filter every item in the array, at every character entered or deleted, which could be a problem, and not
+only a problem, but could terribly slow down the application.
+
+### Searching with debounce
+
+We'll use `useMemo` hook, which will prevent re-rendering of the component, if the value of the input is the same as in the previous render, which will make our data
+persist between re-renders.
+
+```tsx:tsx
+const debouncedSearch = useMemo(() => {
+  return debouce(handleChange, 500);
+}, []);
+```
+
+Now we'll make use of `useEffect` hook, to clean up any side effects that we might have created when our component gets unmounted.
+
+```tsx:tsx
+useEffect(() => {
+  return () => {
+    debouncedSearch.cancel();
+  };
+});
+```
+
+Final step is to make our input uncontrolled by removing value prop, and setting `onChange` prop to our newly created `debouncedSearch` function.
+
+```tsx:tsx
+<input type="text" onChange={debouncedSearch} />
+```
+
+### Example code what it would look like
+
+<SandboxFrame src="https://codesandbox.io/embed/search-debouncing-pyskce?fontsize=14&hidenavigation=1&theme=dark&view=split" />

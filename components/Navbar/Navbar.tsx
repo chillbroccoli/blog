@@ -10,11 +10,6 @@ export default function Navbar() {
   const tabs = [
     { name: "Home", href: "/", current: router.route === "/" },
     { name: "Posts", href: "/posts", current: router.route === "/posts" },
-    {
-      name: "Projects",
-      href: "/projects",
-      current: router.route === "/projects",
-    },
   ];
 
   return (
